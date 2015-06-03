@@ -1,0 +1,154 @@
+==================================================================
+https://keybase.io/gdude2002
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://chatterbox.works
+  * I am gdude2002 (https://keybase.io/gdude2002) on keybase.
+  * I have a public key with fingerprint FDE9 31DA 44AC ABCD 0770  7325 3AD0 7AC1 CBBA 85D6
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "fde931da44acabcd077073253ad07ac1cbba85d6",
+            "host": "keybase.io",
+            "key_id": "3ad07ac1cbba85d6",
+            "kid": "0101c4616c0f7533897c5df0d600e69120866b5504cc4033bd864af32e65a33662750a",
+            "uid": "fec69e7d38ac8b62aa1bcf26c388b100",
+            "username": "gdude2002"
+        },
+        "service": {
+            "hostname": "chatterbox.works",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1432990650,
+    "expire_in": 157680000,
+    "prev": "7a3c4a60dec7cc6e54326e706f23e37aec6f72a3f9bb7a773249433cddb2e432",
+    "seqno": 40,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.8
+Comment: https://keybase.io/crypto
+
+yMM8AnicbZJrTBRXFMeXlxFSG9vVEDHlMRQMZZV5z+yySmsLhEcRF6sVSuHOnTvL
+QDuzzC4LCmyC2PpoCTWKiVrU2GAUs6lWKXZJXVAJRQkFCxH4UAIGrVgfpA9pQ0ln
+if3W++Xee87//7s5556bK0IMEUGTC4VK+Wsxh4Nu92RWGd6TL/tqMUEVd2GWWqwC
+LW2SrNiR5tBkxYVZMElEZooQAU0DCAQo4hyHcxTJUEA/AkhAQQA8I7KYCStTnQGH
+jhGAE22QVT2mX0pkUY/+j75iKYETOAFplmAhLnEMRfFmDjKihIssjiPWTJA4z7IC
+w+A0hDROUYLIszSQKBKxDKAoliU5Bgc6rmoJJyHImhEnUjyAvMCSABAClEgWUjwv
+EDgeEDqRpoCPka62i1UiInGcxOpNmB52yxAFehAo5YUElgGXC2mCWrOhWtUqnDrA
+oakuFaof6dkyl8vhtATcrl2OgLwaCSUvQCWCrIh6M3WHG2lOWVUwC6EroUsOkAma
+Is1mnGVwE4ZqHLKGSuSAguFYHtdX4B3k1pEcoCANWFxEkIOQRYxuZBGHsxJJIYoD
+esUSRwJKMgsCBzj9d2gzTVFQFAUS6VosUFqlomIWWoe6gF1nOmW7AlxVGsLqr/d8
+EGoIijAsCwsOzIMhInzlf1PSkLXS4DO83ubK6n3kLs79I5EL8vqQ0XfkmzbjyWQe
+bmYKv7INNez2nxyNmMi4Nhw3fX/f8PXgiecVYdtfntmf/Mbx8ea3rrbOeE2hPLdq
+wTrHzTvD8q2p/hupN8HlV3u3NX+LxqK1O8aJotWXEns6ilu350f6baV/fpqdd/r0
+3jW1nt9vTyr+h5o9Jjf3lcY3f0hetzF5Z33fdPWtd1KeFe0gBjBPb9a1qfQfR4aU
+Am3BVG79+soWM/d56LvzewfivSPenIIdT7f+HCJdHD336/qWM8uuShel0v4ub1BG
+Rtf5ubxfWu6Z0txXHmcV3G0sHDpakBa570xmZ+1Awthv34/P2GbLbYtN8yeyQ37q
+TxEdf22JvjPdsjMj0nb+eZut/dlgkrrn8FD5o6799gP/GNvyHBMxg/6cJ2/XrBkP
+nv6Of3Kpd+0wGuvT7m5rOzhnTVjrPuvJJRqjkg4uCPdGyWMD9ZsvWHKe5jmaG+dH
+sLDixW4Gf5xxqOnEl9rx0lti6oet2Q8aQqJWb3zf2nef3l2X7ptc7h8VPQWHvKaH
+p+KaNln+XrG4ydzZ3bc+rv0sU9mxak/LUSX6VIJgFvKN87G1iX1ds+mp3tbxynSH
+tW65z/NFbFFdO0wLz84cUR/ENifNttJTU1tz1GPx6R2fDMbLns9KZrCXzvVHpXR2
+51+4EW4M7WbG/gW1H6mR
+=gTUZ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gdude2002
+
+==================================================================
+https://keybase.io/jkcclemens
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://chatterbox.works
+  * I am jkcclemens (https://keybase.io/jkcclemens) on keybase.
+  * I have a public key with fingerprint 260B 54F5 641A 3F4C 7739  8CF5 AD5B FDE7 B5FF D961
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.7"
+        },
+        "key": {
+            "fingerprint": "260b54f5641a3f4c77398cf5ad5bfde7b5ffd961",
+            "host": "keybase.io",
+            "key_id": "AD5BFDE7B5FFD961",
+            "uid": "05c713756be9995abcb7f1b8d3b2f200",
+            "username": "jkcclemens"
+        },
+        "merkle_root": {
+            "ctime": 1433021871,
+            "hash": "a1922cd2b902ccc3dcbe7d5a6da9e58f65f600621ca12cc7c00d53f7d9fc3286773b75af0900efeb8ad9c1c107ce9dcbaeb0e09732479b3155b1a39dd1a19f14",
+            "seqno": 232549
+        },
+        "service": {
+            "hostname": "chatterbox.works",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1433021903,
+    "expire_in": 157680000,
+    "prev": "4097ab078fb8ed9ee2d1ca9b8a594dc136f4f1b8fadafff506def51a1c98562e",
+    "seqno": 47,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owFVkntQFVUcxy8vH6gjN0EdqdDFIhFxX2d3z1VUnj5AZ1JLgqHb7jlnuQv33r3u
+vSCITEqiooiBD8ppRhNrnOSOkRGpY2Nollf+EXXUGJMZKzWcGhhsRGFq12jK89d5
+fH/f3+/z+533J0XYwsOChSP32v+6JYddfqDY3iiZ111FKTqupBxVFHJrxBuwdl7Z
+QygHVUoqFdlPUjV9plfHJLXEP3NUk0KVE8Ov6V5TRaeKqSJVnWLJrWBV8xYTw2do
+lhfFCrQCeBUIPCNzKo9EkYMSUoGMgaJiIipAVTEUGNPSpfsDz2Wlnnk6NWzepmeB
+jJysbDED5ORk/aMve/ZAAyQynAgEhUAIgawgRVQZRcKcwqosTVtCPzFGkUpKEXIT
+D/H6rYo9xCh1E6eh68+wUUCzRAzPcTTLSCJj1iT7XWaYzECWRZhVIM0ihDiMFCJi
+IAtYhgRIqgBUgaYFlkEyYwpERNMYcKqIoYo4VhJMakUEskpDmiYqUSQZQ8QghhYR
+gaaZTBSa0FDkWF6ECscAoJjtghgzZmaV4U0IP1nv1SkHy7GAh9XW2SjXELHqtho3
+yodcciBADEWvSN2gG6V+M9Bn6AEd6W7z1RUI+PwOizxQ6SPt5s0GojhHnZyK5sXm
+7P4/XMaUPt8VSHMpFKnwaQZxapYCiIJEm8tKRMpNS97kkBValFRFIhgSwmKzLdBk
+BpDHiOEElbcGpMpYVlUV0AImKjBBEZSAwJL/WHnRLFQuNj39WrFXDpQZhKquC38x
+0hYWbhsTFW59X1v0+Jh//3Tv9MnDE5vzP63d4+iPuXk091qku2fhyWl8z50Z59ZU
+74xYtgLl3Fizqb8nk186+BDHubWKD+udK4Odwafda8tWRXxQA+N21U/Bc4aynww2
+9z685Spo6kpblJWYMrdj78ehtk151+IOMHGRZemb4uwj2z7rnd8ONv7+y/DdhOG3
+LhQ1tvj680Kr6ZdGliElb+qOnXfybs941Dl9o6+hNinpsn3/0Ei+e/1PY7cGa27O
+A9/PXlKUWL5nWEtOdqNgWo/9ZFLduO1XVy/+ZunZ+oTt089skUfOrIv/MqNx/Kty
+y7XkOsA5YjYPxlz1ZO/qbNgY2zehyHUsZsLIicHM/C00RSKnekK+zbkL7RdBTXBv
+H46IrsiNHzMQnn7jldPvNS8+0d+3++z59obCuMerHpe0Tn4wH3acs91bO21RQc3c
+N9lDN09csV2/lF11IPGrqsxBf+3yz5+uPrSt9ErjUMiRUX18YN2pt+f3r9wnvXvx
+x8LbbeK+cDkB/nqk9Td89O7hC7j6u66chAW+racjDoyPSvtTg/llH82eFd8ffeR4
+bELaROf9idMmLW/d+lrrEunwz+dtdODyCxnDewt88QtyXk+LXnavuTAxJLn3d3g8
+dvvAO5kFubcO9n4yZwBOCWuKfXTw/sWu9p4dTd8+Pj3W1jh0KLJl9wr75qhxX7i+
+bvvheknXqUfdLz/5o7vZOAbSQ5f+Bg==
+=f7Uv
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jkcclemens
+
+==================================================================

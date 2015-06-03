@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatterbox: Minecraft chat that works for you</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="/semantic.min.css">
+
+    <style>
+        .four-em-col {
+            width: 4em;
+        }
+
+        .one-em-col {
+            width: 1em;
+        }
+
+        i.icon {
+            margin: 0 !important;
+        }
+
+        .wrapper {
+            padding-top: 45px;
+            margin-right: 33px;
+            margin-left: 165px;
+            margin-bottom: 25px;
+        }
+
+        #builds-table {
+            display: none;
+            margin: 0;
+            padding: 0;
+            border: 0 !important;
+        }
+
+        #dev-builds {
+            padding: 0 !important;
+        }
+
+        #builds-error {
+            display: none;
+        }
+
+        #button {
+            display: none !important;
+        }
+
+        body.pushable {
+            background: #e5e5e5 !important;
+        }
+
+        .pushable>.pusher {
+            position: fixed !important;
+        }
+
+        #close-item {
+            display: none;
+        }
+
+        #loading-icon {
+            margin: auto !important;
+            display: block;
+            margin-top: 0.3em !important;
+            margin-bottom: 0.3em !important;
+        }
+
+        .inner-loader {
+            margin: auto !important;
+            display: block;
+            margin-top: 0.3em !important;
+            margin-bottom: 0.3em !important;
+        }
+
+        @media (max-width: 1024px) {
+            #button {
+                display: inline-block !important;
+            }
+
+            .wrapper {
+                padding-top: 10px;
+                margin-left: 15px !important;
+                margin-right: 15px !important;
+                margin-bottom: 15px !important;
+            }
+
+            #close-item {
+                display: block;
+            }
+        }
+
+        #button {
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="pushable">
+
+<div class="ui modal" id="download-modal">
+    <i class="close icon"></i>
+    <div class="header">
+        No stable downloads available
+    </div>
+    <div class="content">
+        <div class="description">
+            <p> Chatterbox is in the early testing phase right now. We welcome all testers, but please note that the plugin
+                does not yet have a stable release.
+            </p>
+
+            <p>
+                The best way for you to help us is to test one of the development builds, and report any issues you have
+                to the <a href="https://github.com/Chatterbox/Chatterbox/issues">issue tracker on GitHub</a>. You can also
+                <a href="https://webchat.esper.net/?channels=#chatterbox">join us on IRC</a> to discuss the plugin, or have a
+                chat with the team.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="ui left vertical inverted blue labeled icon pusher sidebar menu" id="sidebar">
+    <a class="item" id="close-item">
+        Close menu
+    </a>
+    <a class="active item" href="/">
+        <i class="home icon"></i>
+        Home
+    </a>
+    <a class="item" href="/team/">
+        <i class="users icon"></i>
+        Team
+    </a>
+    <a class="item" href="https://chatter.chatterbox.works">
+        <i class="comments icon"></i>
+        Chatter (Forum)
+    </a>
+    <a class="item" href="https://github.com/Chatterbox/Chatterbox/wiki">
+        <i class="book icon"></i>
+        Documentation
+    </a>
+    <a class="item" href="https://github.com/Chatterbox/Chatterbox/issues">
+        <i class="bug icon"></i>
+        Bug tracker
+    </a>
+    <a class="item" href="#" data-position="right" id="downloads-item">
+        <i class="download icon"></i>
+        Downloads
+    </a>
+    <a class="item" href="https://github.com/Chatterbox">
+        <i class="github icon"></i>
+        GitHub
+    </a>
+    <a class="item" href="http://bamboo.gserv.me/browse/CHAT-PLUG">
+        <i class="refresh icon"></i>
+        Dev Builds
+    </a>
+    <a class="item" href="https://af.chatterbox.works/artifactory/chatterbox/">
+        <i class="archive icon"></i>
+        Maven
+    </a>
+    <a class="item" href="https://webtranslateit.com/en/projects/11623-Chatterbox">
+        <i class="world icon"></i>
+        Translations
+    </a>
+</div>
+
+<button class="ui right attached blue button" id="button">
+    <i class="content icon"></i>
+    Menu
+</button>
+
+<div class="ui content wrapper">
+    <h1>Chatterbox: Minecraft chat that works for you</h1>
+
+    <div class="ui equal height stackable grid">
+        <div class="stretched row">
+            <div class="eight wide column">
+                <div class="ui segment">
+                    <p> Chat plugins are nothing new. In the Bukkit scene, there are tons of
+                        different plugins, approches, and varying levels of code quality. Every plugin
+                        was developed with a different set of needs in mind, and that leads to a lot
+                        of fragmentation.
+                    </p>
+                    <p> Chatterbox is a new plugin designed around flexibility. If you need a chat plugin
+                        that you can just throw onto your server and forget, welcome to the party! If you're
+                        a control-freak admin who would love to control every aspect of your chat formatting,
+                        it's great to have you on board.
+                    </p>
+                    <p> Chatterbox: the chat plugin for every server, every need, and everyone. Be excited &mdash; we
+                        certainly are.
+                    </p>
+                </div>
+            </div>
+
+            <div class="eight wide column">
+                <div class="ui segment">
+                    <p> Chatterbox makes use of the fantastic <a href="http://rythmengine.org/">Rythm Engine</a> for
+                        much of its flexibility. Rythm is simple to use for server administrators, but also provides
+                        many powerful features, and even provides access to Java in the cases that require it.
+                    </p>
+                    <p>
+                        You can find more information on using the Rythm Engine in the following places.
+                    </p>
+
+                    <ul>
+                        <li><a href="https://github.com/jkcclemens/Chatterbox/wiki/Rythm">The Chatterbox wiki</a></li>
+                        <li><a href="http://rythmengine.org/">The Rythm documentation site</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="ui top attached header">Milestone progress</h1>
+
+    <div class="ui bottom attached secondary segment">
+        <div class="ui indicating progress" id="progress">
+            <div class="bar">
+                <div class="progress"></div>
+            </div>
+            <div class="label">Loading..</div>
+        </div>
+    </div>
+
+    <h1 class="ui top attached header">Development builds</h1>
+
+    <div class="ui attached icon warning message">
+        <i class="ui warning sign icon"></i>
+        <div class="content">
+            <div class="header">
+                Development builds are not for production use!
+            </div>
+            <p>
+                If you're coming from BukkitDev, please note that the development builds have not been approved by the
+                Curse/BukkitDev staff and that, while we're fairly certain that they won't blow up your machine, you're
+                testing them at your own risk.
+            </p>
+        </div>
+    </div>
+
+    <div class="ui bottom attached secondary segment" id="dev-builds">
+        <i class="massive notched circle loading icon" id="loading-icon"></i>
+
+        <div class="ui fitted negative message" id="builds-error">
+            <div class="header">Unable to load development builds</div>
+        </div>
+    </div>
+
+    <div class="ui segment">
+        <p> Chatterbox is being developed by jkcclemens and gdude2002, and it is currently in the public testing phase.
+            Click on the "Download" link to the left to find out how you can help us test!
+        </p>
+    </div>
+
+</div>
+
+<script src="/jquery.min.js"></script>
+<script src="/semantic.min.js"></script>
+<script>
+    (function() {
+        'use strict';
+
+        var closed = false;
+        var threshold = 1024;
+        var $sidebar = $('#sidebar');
+        var $window = $(window);
+
+        function handleSizeChange() {
+            if (!closed && $window.width() <= threshold) {
+                $sidebar
+                        .sidebar('setting', 'closable', true)
+                        .sidebar('hide');
+                closed = true;
+
+            } else if (closed && $window.width() > threshold) {
+                $sidebar
+                        .sidebar('setting', 'closable', false)
+                        .sidebar('show');
+                closed = false;
+            }
+        }
+
+        function pollProgress() {
+            try {
+                $.getJSON("https://api.github.com/repos/Chatterbox/Chatterbox/milestones",
+                        function(data) {
+                            var milestone = data[0];
+                            var total = milestone.closed_issues + milestone.open_issues;
+
+                            $("#progress").progress({
+                                total: total,
+                                value: milestone.closed_issues,
+                                label: 'ratio',
+                                text: {
+                                    active: 'Milestone ' + milestone.title + ': In progress',
+                                    success: 'Milestone ' + milestone.title + ': Complete',
+                                    ratio: milestone.closed_issues + ' / ' + total
+                                }
+                            });
+                        }
+                );
+            } catch(e) {
+
+            }
+        }
+
+        $sidebar
+                .sidebar('setting', 'transition', 'overlay')
+                .sidebar('attach events', '#button')
+                .sidebar('attach events', '#close-item', 'hide');
+
+        if ($window.width() <= threshold) {
+            $sidebar.sidebar('setting', 'closable', true);
+            closed = true;
+        } else {
+            $sidebar.addClass("visible");
+            $sidebar.sidebar('setting', 'closable', false);
+            closed = false;
+        }
+
+        $window.resize(handleSizeChange);
+        $window.focus(handleSizeChange);
+
+        $("#download-modal")
+            .modal({closable: true})
+            .modal("attach events", "#downloads-item", "show");
+
+        try {
+            $.getJSON("https://bamboo.gserv.me/rest/api/latest/result/CHAT-PLUG.json?expand=results.result,results.result.artifacts",
+                    function (data) {
+                        var content = "";
+                        var state;
+
+                        content += '<table class="ui large compact unstackable celled fitted striped table" id="builds-table">';
+
+                        content += '<thead><tr>' +
+                                '<th class="four-em-col"></th>' +
+                                '<th class="center aligned one-em-col"><i class="inverted circular orange help icon"></i></th>' +
+                                '<th>Date (EST)</th>' +
+                                '<th colspan="2">Reason</th>' +
+                                '<th class="center aligned one-em-col"><i class="inverted circular orange fork icon"></i></th>' +
+                                '<th class="center aligned one-em-col"><i class="inverted circular orange chevron down icon"></i></th>' +
+                                '</tr></thead><tbody>';
+
+                        $.each(data.results.result, function (i, result) {
+                            if (i > 16) {
+                                return;
+                            }
+
+                            state = result.state.toLowerCase();
+
+                            content += '<tr><td class="four-em-col"> #<a href="https://bamboo.gserv.me/browse/CHAT-PLUG-' + result.number + '">' + result.number + '</a></td><td class="center aligned one-em-col">';
+
+                            if (state == "successful") {
+                                content += '<i class="inverted circular green checkmark icon" title="' + result.state + '"></i>';
+                            } else if (state == "failed") {
+                                content += '<i class="inverted circular red remove icon" title="' + result.state + '"></i>';
+                            } else {
+                                content += '<i class="inverted circular blue help icon" title="' + result.state + '"></i>';
+                            }
+
+                            content += '<td>' + result.prettyBuildCompletedTime + '</td>';
+
+                            if (result.buildReason.indexOf("Changes") > -1) {
+                                content += '<td>' + result.buildReason + '</td>';
+                                content += '<td id="' + result.vcsRevisionKey + '"><i class="notched circle loading icon" class="inner-loader"></i></td>';
+
+                                $.getJSON(
+                                        "https://api.github.com/repos/Chatterbox/Chatterbox/commits/" + result.vcsRevisionKey,
+
+                                        function(data) {
+                                            console.log(data);
+                                            var lines = data.commit.message.split("\n");
+                                            $("#" + data.sha + " .inner-loader").hide();
+
+                                            if (lines.length > 1) {
+                                                $("#" + data.sha).html(lines[0] + ' <small><em>+ ' + (lines.length - 1) + ' lines</em></small>');
+                                            } else {
+                                                $("#" + data.sha).html(lines[0]);
+                                            }
+                                        }
+                                );
+                            } else {
+                                content += '<td colspan="2">' + result.buildReason + '</td>';
+                            }
+
+                            content += '<td class="center aligned one-em-col">';
+                            content += '<a href="https://github.com/Chatterbox/Chatterbox/commit/' + result.vcsRevisionKey + '"><i class="inverted circular blue github icon"></i></a>';
+
+                            content += '</td><td class="center aligned one-em-col">';
+
+                            if (result.artifacts.size > 0) {
+                                content += '<a href="';
+                                content += result.artifacts.artifact[0].link.href;
+                                content += '"><i class="inverted circular blue download icon"></i></a>';
+                            } else {
+                                content += '<i class="inverted circular red download icon"></i>';
+                            }
+
+                            content += '</td></tr>';
+                        });
+
+                        content += '</tbody></table>';
+                        $(content).appendTo("#dev-builds");
+
+                        $("#loading-icon").fadeOut(300, function () {
+                            $("#builds-table").fadeIn(300)
+                        });
+                    }
+            );
+        } catch(e) {
+            $("<p>" + e.message + "</p>").appendTo("#builds-error");
+        }
+
+        pollProgress();
+        setInterval(pollProgress, 120000);
+
+
+    })();
+</script>
+
+</body>
+</html>

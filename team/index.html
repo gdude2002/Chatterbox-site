@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatterbox: Minecraft chat that works for you</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="/semantic.min.css">
+
+    <style>
+        .four-em-col {
+            width: 4em;
+        }
+
+        .one-em-col {
+            width: 1em;
+        }
+
+        i.icon {
+            margin: 0 !important;
+        }
+
+        .wrapper {
+            padding-top: 45px;
+            margin-right: 33px;
+            margin-left: 165px;
+            margin-bottom: 25px;
+        }
+
+        #builds-table {
+            display: none;
+            margin: 0;
+            padding: 0;
+            border: 0 !important;
+        }
+
+        #dev-builds {
+            padding: 0 !important;
+        }
+
+        #builds-error {
+            display: none;
+        }
+
+        #button {
+            display: none !important;
+        }
+
+        body.pushable {
+            background: #e5e5e5 !important;
+        }
+
+        .pushable>.pusher {
+            position: fixed !important;
+        }
+
+        #close-item {
+            display: none;
+        }
+
+        #loading-icon {
+            margin: auto !important;
+            display: block;
+            margin-top: 0.3em !important;
+            margin-bottom: 0.3em !important;
+        }
+
+        .inner-loader {
+            margin: auto !important;
+            display: block;
+            margin-top: 0.3em !important;
+            margin-bottom: 0.3em !important;
+        }
+
+        @media (max-width: 1024px) {
+            #button {
+                display: inline-block !important;
+            }
+
+            .wrapper {
+                padding-top: 10px;
+                margin-left: 15px !important;
+                margin-right: 15px !important;
+                margin-bottom: 15px !important;
+            }
+
+            #close-item {
+                display: block;
+            }
+        }
+
+        #button {
+            z-index: 0;
+        }
+
+        .ui.cards>.card {
+            margin-right: 1em;
+        }
+    </style>
+</head>
+<body class="pushable">
+
+<div class="ui modal" id="download-modal">
+    <i class="close icon"></i>
+    <div class="header">
+        No stable downloads available
+    </div>
+    <div class="content">
+        <div class="description">
+            <p> Chatterbox is in the early testing phase right now. We welcome all testers, but please note that the plugin
+                does not yet have a stable release.
+            </p>
+
+            <p>
+                The best way for you to help us is to test one of the development builds, and report any issues you have
+                to the <a href="https://github.com/Chatterbox/Chatterbox/issues">issue tracker on GitHub</a>. You can also
+                <a href="https://webchat.esper.net/?channels=#chatterbox">join us on IRC</a> to discuss the plugin, or have a
+                chat with the team.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="ui left vertical inverted blue labeled icon pusher sidebar menu" id="sidebar">
+    <a class="item" id="close-item">
+        Close menu
+    </a>
+    <a class="item" href="/">
+        <i class="home icon"></i>
+        Home
+    </a>
+    <a class="active item" href="/team/">
+        <i class="users icon"></i>
+        Team
+    </a>
+    <a class="item" href="https://chatter.chatterbox.works">
+        <i class="comments icon"></i>
+        Chatter (Forum)
+    </a>
+    <a class="item" href="https://github.com/Chatterbox/Chatterbox/wiki">
+        <i class="book icon"></i>
+        Documentation
+    </a>
+    <a class="item" href="https://github.com/Chatterbox/Chatterbox/issues">
+        <i class="bug icon"></i>
+        Bug tracker
+    </a>
+    <a class="item" href="#" data-position="right" id="downloads-item">
+        <i class="download icon"></i>
+        Downloads
+    </a>
+    <a class="item" href="https://github.com/Chatterbox">
+        <i class="github icon"></i>
+        GitHub
+    </a>
+    <a class="item" href="http://bamboo.gserv.me/browse/CHAT-PLUG">
+        <i class="refresh icon"></i>
+        Dev Builds
+    </a>
+    <a class="item" href="https://af.chatterbox.works/artifactory/chatterbox/">
+        <i class="archive icon"></i>
+        Maven
+    </a>
+    <a class="item" href="https://webtranslateit.com/en/projects/11623-Chatterbox">
+        <i class="world icon"></i>
+        Translations
+    </a>
+</div>
+
+<button class="ui right attached blue button" id="button">
+    <i class="content icon"></i>
+    Menu
+</button>
+
+<div class="ui content wrapper">
+    <h1 class="ui header">Who are we?</h1>
+
+    <div class="ui segment">
+        <p> The Chatterbox project is maintained by a multifaceted team of people, hailing from many parts of the world.
+            We aim to bring you the best that Minecraft chat has to offer, through innovation, careful development and
+            attention to detail.
+        </p>
+        <p>
+            If you'd like to get to know us better, feel free to check out the informational cards below.
+        </p>
+    </div>
+
+    <h2 class="ui dividing header">Project Leaders</h2>
+
+    <div class="ui four cards">
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">Development</a>
+                <img src="/images/avatars/jkcclemens.png">
+            </div>
+            <div class="content">
+                <div class="header">Kyle Clemens</div>
+                <div class="meta">
+                    jkcclemens
+                </div>
+                <div class="description">
+                    <p> Kyle is a developer hailing from Michigan, in the United States. He enjoys writing in Java
+                        and Python. Kyle prefers Debian for servers and OS X for personal computers.
+                    </p>
+                    <p> He runs the programming show in the Chatterbox project. Maintainer of the main repo and all
+                        official hooks, he is busy adding features and keeping things running smoothly. You can find
+                        him on IRC when he's not sleeping.
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/jkcclemens" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <a href="https://kyleclemens.com/" title="Personal site">
+                        <i class="big inverted blue world icon"></i>
+                    </a>
+                    <a href="http://www.last.fm/user/jkcclemens">
+                        <i class="big inverted blue lastfm square icon" title="Last.FM"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">Infrastructure</a>
+                <img src="/images/avatars/gdude2002.png">
+            </div>
+            <div class="content">
+                <div class="header">Gareth Coles</div>
+                <div class="meta">
+                    gdude2002
+                </div>
+                <div class="description">
+                    <p> Gareth is an English programmer living in Ireland. He specializes in Python and Java,
+                        and has many years of experience with programming in general, as well as Linux systems
+                        administration.
+                    </p>
+                    <p> His role in the Chatterbox project is mostly related to the website, hosting and administration.
+                        He hosts the site, forums, artifactory, build server and JavaDocs, and spends a lot of time on
+                        IRC.
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/gdude2002">
+                        <i class="big inverted blue github icon" title="GitHub"></i>
+                    </a>
+                    <a href="http://www.last.fm/user/gdude2002">
+                        <i class="big inverted blue lastfm square icon" title="Last.FM"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">Quality Assurance</h2>
+
+    <div class="ui four cards">
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">Testing</a>
+                <img src="/images/avatars/turt2live.png">
+            </div>
+            <div class="content">
+                <div class="header">Travis Ralston</div>
+                <div class="meta">
+                    turt2live
+                </div>
+                <div class="description">
+                    <p> I can haz bio?
+                    </p>
+                    <p> pls?
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/turt2live" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <a href="http://travisralston.me/" title="Personal site">
+                        <i class="big inverted blue world icon"></i>
+                    </a>
+                    <!--<a href="http://www.last.fm/user/jkcclemens">-->
+                        <!--<i class="big inverted blue lastfm square icon" title="Last.FM"></i>-->
+                    <!--</a>-->
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">Internationalisation</h2>
+
+    <div class="ui four cards">
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">Japanese</a>
+                <img src="/images/avatars/evelynsubarrow.png">
+            </div>
+            <div class="content">
+                <div class="header">Evelyn Yuki</div>
+                <div class="meta">
+                    EvelynSubarrow
+                </div>
+                <div class="description">
+                    <p> I can haz bio?
+                    </p>
+                    <p> pls?
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/evelynsubarrow" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <a href="http://evelyn.moe/" title="Personal site">
+                        <i class="big inverted blue world icon"></i>
+                    </a>
+                    <!--<a href="http://www.last.fm/user/jkcclemens">-->
+                        <!--<i class="big inverted blue lastfm square icon" title="Last.FM"></i>-->
+                    <!--</a>-->
+                </span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">French</a>
+                <img src="/images/avatars/Ribesg.png">
+            </div>
+            <div class="content">
+                <div class="header">Gael Ribes</div>
+                <div class="meta">
+                    Ribesg
+                </div>
+                <div class="description">
+                    <p> I can haz bio?
+                    </p>
+                    <p> pls?
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/Ribesg" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <a href="http://ribesg.fr/" title="Personal site">
+                        <i class="big inverted blue world icon"></i>
+                    </a>
+                    <!--<a href="http://www.last.fm/user/jkcclemens">-->
+                        <!--<i class="big inverted blue lastfm square icon" title="Last.FM"></i>-->
+                    <!--</a>-->
+                </span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">French</a>
+                <img src="/images/avatars/bendem.png">
+            </div>
+            <div class="content">
+                <div class="header">bendem</div>
+                <div class="meta">
+                    bendem
+                </div>
+                <div class="description">
+                    <p> I can haz bio?
+                    </p>
+                    <p> pls?
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/bendem" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <a href="http://bendem.be/" title="Personal site">
+                        <i class="big inverted blue world icon"></i>
+                    </a>
+                    <!--<a href="http://www.last.fm/user/jkcclemens">-->
+                        <!--<i class="big inverted blue lastfm square icon" title="Last.FM"></i>-->
+                    <!--</a>-->
+                </span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">English</a>
+                <img src="/images/avatars/lol768.png">
+            </div>
+            <div class="content">
+                <div class="header">lol768</div>
+                <div class="meta">
+                    lol768
+                </div>
+                <div class="description">
+                    <p> I can haz bio?
+                    </p>
+                    <p> pls?
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/lol768" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <!--<a href="http://bendem.be/" title="Personal site">-->
+                        <!--<i class="big inverted blue world icon"></i>-->
+                    <!--</a>-->
+                    <!--<a href="http://www.last.fm/user/jkcclemens">-->
+                        <!--<i class="big inverted blue lastfm square icon" title="Last.FM"></i>-->
+                    <!--</a>-->
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui four cards">
+        <div class="card">
+            <div class="ui fluid image">
+                <a class="ui blue right ribbon label">English</a>
+                <img src="/images/avatars/rakiru.png">
+            </div>
+            <div class="content">
+                <div class="header">Sean Gordon</div>
+                <div class="meta">
+                    rakiru
+                </div>
+                <div class="description">
+                    <p> Copy-pastes English to English.
+                    </p>
+                </div>
+            </div>
+            <div class="extra content">
+                <span>
+                    <a href="https://github.com/rakiru" title="GitHub">
+                        <i class="big inverted blue github icon"></i>
+                    </a>
+                    <a href="http://rakiru.com/" title="Personal site">
+                        <i class="big inverted blue world icon"></i>
+                    </a>
+                    <a href="http://www.last.fm/user/rabbitkillrun">
+                        <i class="big inverted blue lastfm square icon" title="Last.FM"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/jquery.min.js"></script>
+<script src="/semantic.min.js"></script>
+<script>
+    (function() {
+        'use strict';
+
+        var closed = false;
+        var threshold = 1024;
+        var $sidebar = $('#sidebar');
+        var $window = $(window);
+
+        function handleSizeChange() {
+            if (!closed && $window.width() <= threshold) {
+                $sidebar
+                        .sidebar('setting', 'closable', true)
+                        .sidebar('hide');
+                closed = true;
+
+            } else if (closed && $window.width() > threshold) {
+                $sidebar
+                        .sidebar('setting', 'closable', false)
+                        .sidebar('show');
+                closed = false;
+            }
+        }
+
+        $sidebar
+                .sidebar('setting', 'transition', 'overlay')
+                .sidebar('attach events', '#button')
+                .sidebar('attach events', '#close-item', 'hide');
+
+        if ($window.width() <= threshold) {
+            $sidebar.sidebar('setting', 'closable', true);
+            closed = true;
+        } else {
+            $sidebar.sidebar('setting', 'duration', 0);
+            $sidebar.addClass("visible");
+            $sidebar.sidebar('setting', 'duration', 500);
+            $sidebar.sidebar('setting', 'closable', false);
+            closed = false;
+        }
+
+        $window.resize(handleSizeChange);
+        $window.focus(handleSizeChange);
+
+        $("#download-modal")
+            .modal({closable: true})
+            .modal("attach events", "#downloads-item", "show");
+    })();
+</script>
+
+</body>
+</html>
