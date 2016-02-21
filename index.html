@@ -325,7 +325,7 @@
             .modal("attach events", "#downloads-item", "show");
 
         try {
-            $.getJSON("https://bamboo.gserv.me/rest/api/latest/result/CHAT-PLUG.json?expand=results.result,results.result.artifacts",
+            $.getJSON("https://bamboo.gserv.me/rest/api/latest/result/CHAT-PLUG.json?expand=results.result.artifacts",
                     function (data) {
                         var content = "";
                         var state;
